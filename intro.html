@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SISTEM PERSAMAAN LINIER &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Markdown Files" href="markdown.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/foto.jpeg" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/foto.jpeg" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1 current active">
+                <a class="reference internal" href="#">
+                    SISTEM PERSAMAAN LINIER
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/intro.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SISTEM PERSAMAAN LINIER</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">SISTEM PERSAMAAN LINIER</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear">1.1 Sistem Persamaan Linear</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-sistem-persamaan-linear">1.1.1. Definisi Sistem Persamaan Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-dari-operasi-persamaan-linear">1.1.2 Tujuan Dari Operasi Persamaan Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-linear-dan-nonlinear">1.1.2. Persamaan Linear dan Nonlinear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-linear">1. Persamaan Linear</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-nonlinear">2. Persamaan Nonlinear</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-solusi-sistem-persamaan-linear">1.1.3. Definisi Solusi Sistem Persamaan Linear</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sistem-persamaan-linier">
+<h1>SISTEM PERSAMAAN LINIER<a class="headerlink" href="#sistem-persamaan-linier" title="Link to this heading">#</a></h1>
+<p>Tentu, ini adalah teks lengkap dari gambar-gambar yang Anda berikan, sudah saya format ke dalam <strong>Markdown</strong> agar rapi dan mudah Anda <em>copy-paste</em> ke VS Code (misalnya untuk file <code class="docutils literal notranslate"><span class="pre">.md</span></code> atau konten Jupyter Book Anda).</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="sistem-persamaan-linear">
+<h1>1.1 Sistem Persamaan Linear<a class="headerlink" href="#sistem-persamaan-linear" title="Link to this heading">#</a></h1>
+<section id="definisi-sistem-persamaan-linear">
+<h2>1.1.1. Definisi Sistem Persamaan Linear<a class="headerlink" href="#definisi-sistem-persamaan-linear" title="Link to this heading">#</a></h2>
+<p>Suatu sistem persamaan linear (<em>system of linear equations</em> atau <em>linear system</em>) adalah suatu himpunan persamaan-persamaan linear. Sistem linear homogen adalah himpunan persamaan linear yang semuanya berbentuk homogen (ruas kanannya nol).</p>
+<p>Jika kita menuliskan suatu sistem yang terdiri atas <span class="math notranslate nohighlight">\(m\)</span> persamaan dalam <span class="math notranslate nohighlight">\(n\)</span> peubah <span class="math notranslate nohighlight">\(x_1, x_2, \dots, x_n\)</span>, biasanya setiap persamaan ditulis dalam bentuk standar dan suku-suku yang bersesuaian disejajarkan dalam kolom sebagai berikut:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n &amp;= b_1 \\
+a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n &amp;= b_2 \\
+\vdots \\
+a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n &amp;= b_m
+\end{aligned}
+\end{split}\]</div>
+<p>Sistem linear homogen biasanya dituliskan sebagai:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n &amp;= 0 \\
+a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n &amp;= 0 \\
+\vdots \\
+a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n &amp;= 0
+\end{aligned}
+\end{split}\]</div>
+</section>
+<section id="tujuan-dari-operasi-persamaan-linear">
+<h2>1.1.2 Tujuan Dari Operasi Persamaan Linear<a class="headerlink" href="#tujuan-dari-operasi-persamaan-linear" title="Link to this heading">#</a></h2>
+<p>Operasi persamaan linear bertujuan untuk menemukan solusi dengan cara menyederhanakan persamaan tanpa mengubah nilai kebenarannya, seperti contoh di bawah ini:
+Diberikan persamaan:
+<span class="math notranslate nohighlight">\(2x + 4 = 10\)</span>
+Tujuan kita adalah mencari <span class="math notranslate nohighlight">\(x\)</span>, langkah operasi yang bisa kita lakukan dengan menggunakan cara:</p>
+<ol class="arabic simple">
+<li><p>Kita kurangi kedua sisi dengan 4:
+<span class="math notranslate nohighlight">\(2x + 4 - 4 = 10 - 4\)</span>
+<span class="math notranslate nohighlight">\(2x = 6\)</span></p></li>
+<li><p>Kita bagi kedua sisi dengan 2:
+<span class="math notranslate nohighlight">\(x = 3\)</span></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="persamaan-linear-dan-nonlinear">
+<h2>1.1.2. Persamaan Linear dan Nonlinear<a class="headerlink" href="#persamaan-linear-dan-nonlinear" title="Link to this heading">#</a></h2>
+<section id="persamaan-linear">
+<h3>1. Persamaan Linear<a class="headerlink" href="#persamaan-linear" title="Link to this heading">#</a></h3>
+<p>Persamaan linear adalah persamaan yang variabelnya memiliki pangkat tertinggi <strong>satu (derajat satu)</strong> dan grafiknya berbentuk <strong>garis lurus</strong>.</p>
+<p><strong>Contoh Bentuk Umum (dua bentuk)</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Satu variabel</strong>
+<span class="math notranslate nohighlight">\([ ax + b = 0 ]\)</span>
+Keterangan:</p>
+<ul class="simple">
+<li><p>0 = konstanta</p></li>
+<li><p>a, b = koefisien</p></li>
+<li><p>x = variabel
+Contoh: <span class="math notranslate nohighlight">\([ 2x + 5 = 0 ]\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Dua variabel</strong>
+<span class="math notranslate nohighlight">\([ ax + by + c = 0 ]\)</span>
+Keterangan:</p>
+<ul class="simple">
+<li><p>(a, b, c) = konstanta</p></li>
+<li><p>(x, y) = variabel
+Contoh: <span class="math notranslate nohighlight">\([ 2x + y - 4 = 0 ]\)</span></p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Ciri-ciri Persamaan Linear:</strong></p>
+<ul class="simple">
+<li><p>Pangkat variabel = 1</p></li>
+<li><p>Tidak ada perkalian antar variabel</p></li>
+<li><p>Tidak ada akar atau pangkat lebih dari satu</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="persamaan-nonlinear">
+<h3>2. Persamaan Nonlinear<a class="headerlink" href="#persamaan-nonlinear" title="Link to this heading">#</a></h3>
+<p>Persamaan nonlinear adalah persamaan yang memiliki variabel dengan pangkat <strong>lebih dari satu</strong>, berada dalam akar, atau saling dikalikan sehingga grafiknya <strong>bukan garis lurus</strong>.</p>
+<p><strong>Bentuk Umum (dua bentuk)</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Persamaan kuadrat</strong>
+<span class="math notranslate nohighlight">\([ ax^2 + bx + c = 0 ]\)</span>
+Keterangan:</p>
+<ul class="simple">
+<li><p>Pangkat tertinggi variabel adalah 2.
+Contoh: <span class="math notranslate nohighlight">\([ x^2 + 3x - 4 = 0 ]\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Persamaan dengan perkalian variabel</strong>
+<span class="math notranslate nohighlight">\([ xy + x + y = 0 ]\)</span>
+Contoh: <span class="math notranslate nohighlight">\([ xy + 2x - y = 3 ]\)</span></p></li>
+</ol>
+<p><strong>Ciri-ciri Persamaan Nonlinear:</strong></p>
+<ul class="simple">
+<li><p>Pangkat variabel lebih dari 1 atau berbentuk akar</p></li>
+<li><p>Bisa terdapat perkalian antar variabel (<span class="math notranslate nohighlight">\(xy\)</span>)</p></li>
+<li><p>Grafik berupa kurva (parabola, lingkaran, dll.)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="definisi-solusi-sistem-persamaan-linear">
+<h2>1.1.3. Definisi Solusi Sistem Persamaan Linear<a class="headerlink" href="#definisi-solusi-sistem-persamaan-linear" title="Link to this heading">#</a></h2>
+<p><strong>Pengertian Solusi dalam persamaan linear</strong> adalah nilai variabel yang membuat persamaan menjadi <strong>benar</strong> ketika nilai tersebut disubstitusikan ke dalam persamaan.
+Dengan kata lain, solusi adalah nilai yang menyebabkan <strong>ruas kiri = ruas kanan</strong>.</p>
+<p><strong>Penjelasan</strong>: Pada persamaan linear, tujuan utama adalah mencari nilai variabel (misalnya <span class="math notranslate nohighlight">\(x, y, z\)</span>) yang memenuhi persamaan.
+Jika suatu nilai dimasukkan ke dalam persamaan dan menghasilkan kesamaan yang benar, maka nilai tersebut disebut <strong>solusi</strong>.</p>
+<p><strong>Jenis solusi pada persamaan linear diantaranya:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Solusi tunggal</strong>: Hanya ada satu set nilai variabel yang memenuhi semua persamaan.</p></li>
+<li><p><strong>Tidak ada solusi</strong>: Tidak ada nilai variabel yang memenuhi semua persamaan (sistem inkonsisten).</p></li>
+<li><p><strong>Solusi tak terhingga</strong>: Ada tak terhingga banyaknya solusi (sistem dependen).</p></li>
+</ol>
+<p><strong>Contoh grafis (2D) dalam solusi persamaan linear:</strong></p>
+<ul class="simple">
+<li><p>Garis berpotongan <span class="math notranslate nohighlight">\(\to\)</span> Solusi tunggal</p></li>
+<li><p>Garis sejajar <span class="math notranslate nohighlight">\(\to\)</span> Tidak ada solusi</p></li>
+<li><p>Garis berimpit <span class="math notranslate nohighlight">\(\to\)</span> Solusi tak terhingga</p></li>
+</ul>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="markdown.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Markdown Files</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">SISTEM PERSAMAAN LINIER</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear">1.1 Sistem Persamaan Linear</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-sistem-persamaan-linear">1.1.1. Definisi Sistem Persamaan Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-dari-operasi-persamaan-linear">1.1.2 Tujuan Dari Operasi Persamaan Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-linear-dan-nonlinear">1.1.2. Persamaan Linear dan Nonlinear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-linear">1. Persamaan Linear</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-nonlinear">2. Persamaan Nonlinear</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-solusi-sistem-persamaan-linear">1.1.3. Definisi Solusi Sistem Persamaan Linear</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
